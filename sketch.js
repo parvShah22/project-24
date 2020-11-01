@@ -10,7 +10,7 @@ function preload()
 }
 
 function setup() {
-	createCanvas(800, 700);
+	createCanvas(1600, 400);
 
 
 	engine = Engine.create();
@@ -18,24 +18,26 @@ function setup() {
 
 	//Create the Bodies Here.
 
-  ground1 = new Ground(400,500,800,20)
-  wall1 = new Wall(600,550,800,20)
-  wall2 = new Wall(400,500,800,20)
-  wall3 = new Wall(500,500,800,20)
+  ground1 = new Ground(390,390,2000,20)
+  wall1 = new Wall(1200,330,20,100)
+  wall2 = new Wall(980,330,20,100)
+  wall3 = new Wall(1090,370,200,20)
 
+  ball1 = new Ball(200,350,21)
 	Engine.run(engine);
   
 }
 
 
 function draw() {
+  background("black");
   rectMode(CENTER);
-  background("white");
-  ground1.display();
+ 
+ ground1.display();
   wall1.display();
   wall2.display();
   wall3.display();
-
+  ball1.display();
   //drawSprites();
  
 }
@@ -43,15 +45,10 @@ function draw() {
 
 
 
-function keyPressed(){
-	if(keycode === UP_ARROW){
-		Matter.Body.applyForce(paperobject.body,paperobject.body.position,{x:85,y:-85})
+function keyPressed(){	
+  if(keyCode === UP_ARROW){
+	Matter.Body.applyForce(ball1.body,ball1.body.position,{x:85,y:-85})
 	}
 	
 }
-
-
-
-
-
 
